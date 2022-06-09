@@ -4,7 +4,7 @@ public class Cercle implements ObjetGeometrique {
 	
 	double rayon;
 	
-
+	// Constructeur
 	public Cercle(double rayon) {
 		super();
 		this.rayon = rayon;

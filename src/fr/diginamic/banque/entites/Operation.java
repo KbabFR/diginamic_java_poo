@@ -5,12 +5,15 @@ public abstract class Operation {
 	String dateOperation;
 	float montantOperation;
 	
+	// Constructeur
 	public Operation(String dateOperation, float montantOperation) {
 		super();
 		this.dateOperation = dateOperation;
 		this.montantOperation = montantOperation;
 	}
 
+	
+	//---------------Getters/Setters-------------
 	public String getDateOperation() {
 		return dateOperation;
 	}
@@ -32,7 +35,7 @@ public abstract class Operation {
 	public void setMontantOperation(float montantOperation) {
 		this.montantOperation = montantOperation;
 	}
-
+	//-------------------------------------------
 
 
 	@Override
@@ -40,6 +43,7 @@ public abstract class Operation {
 		return " dateOperation=" + dateOperation + ", montantOperation=" + montantOperation;
 	}
 	
+	//Methode abstraite
 	public abstract String getType();
 	
 	

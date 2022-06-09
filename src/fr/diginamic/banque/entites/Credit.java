@@ -2,6 +2,7 @@ package fr.diginamic.banque.entites;
 
 public class Credit extends Operation {
 
+	// Constructeur
 	public Credit(String dateOperation, float montantOperation) {
 		super(dateOperation, montantOperation);
 	}

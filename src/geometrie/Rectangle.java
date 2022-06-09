@@ -2,10 +2,11 @@ package geometrie;
 
 public class Rectangle implements ObjetGeometrique {
 	
-	float longueur;
-	float largeur;
+	double longueur;
+	double largeur;
 
-	public Rectangle(float longueur, float largeur) {
+	// Constructeur
+	public Rectangle(double longueur, double largeur) {
 		super();
 		this.longueur = longueur;
 		this.largeur = largeur;
