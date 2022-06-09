@@ -4,10 +4,10 @@ public class Compte {
 	
 	private int numCompte;
 	
-	private int solde;
+	private float solde;
 	
 	// Constructor with fields
-	public Compte(int numCompte, int solde) {
+	public Compte(int numCompte, float solde) {
 		super();
 		this.numCompte = numCompte;
 		this.solde = solde;
@@ -22,7 +22,7 @@ public class Compte {
 		this.numCompte = numCompte;
 	}
 
-	public int getSolde() {
+	public float getSolde() {
 		return solde;
 	}
 
