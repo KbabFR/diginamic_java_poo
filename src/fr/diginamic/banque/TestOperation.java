@@ -21,11 +21,11 @@ public class TestOperation {
 			System.out.println(operation.toString());
 			
 			// Si l'operation est un débit
-			if("DEBIT".equals(operation.getType()))
+			if(operation.getType().equals("DEBIT"))
 				montant -= operation.getMontantOperation(); // on soustrait le debit
 			
 			// Sinon si l'operation est un Crédit
-			else if("CREDIT".equals(operation.getType()))
+			else if(operation.getType().equals("CREDIT"))
 				montant += operation.getMontantOperation(); // on ajoute le credit
 			
 			// OPTIONNEL Sinon il y a une erreur car l'operation n'est pas reconu comme un debit ou credit
