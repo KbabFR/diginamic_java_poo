@@ -8,15 +8,21 @@ public class JeuDeLaVie {
 
 	public static void main(String[] args) {
 		
-		
+		//TODO add list to save
 		JeuDeLaVie game = new JeuDeLaVie(20, 20, 0);
+		System.out.println(game);
 		while(!game.isEveryoneDead()) {
-			System.out.println(game);
+			for (int i = 0; i < game.playground.length; i++) {
+				for (int j = 0; j < game.playground[0].length; j++) {
+					game.playground[i][j].turn(game.getAroundCellAlive(i, j));
+				}
+			}
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch(Exception e) {
 				System.err.println(e);
 			}
+			System.out.println(game);
 		}
 	}
 
@@ -43,7 +49,7 @@ public class JeuDeLaVie {
 		int cellAlive = 0;
 		for(int i = -1; i < 2; i++) {
 			for(int j = -1; j < 2; j++) {
-				if(playground[x + i][y + j] != null && playground[x + i][y + j].isAlive())
+				if(x + i > -1 && x + i < playground.length && y + j > -1 && y + j < playground[0].length && playground[x + i][y + j].isAlive())
 					cellAlive++;
 			}
 		}
@@ -62,7 +68,13 @@ public class JeuDeLaVie {
 
 	@Override
 	public String toString() {
-		return "JeuDeLaVie [playground=" + Arrays.toString(playground) + "]";
+		for(int i = 0; i < playground.length; i++) {
+			for(int j = 0; j < playground[0].length; j++) {
+				System.out.print("|" + playground[i][j].toString());
+			}
+			System.out.println("|");
+		}
+		return " ";
 	}
 
 	
