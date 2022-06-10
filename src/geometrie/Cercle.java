@@ -10,7 +10,6 @@ public class Cercle implements ObjetGeometrique {
 		this.rayon = rayon;
 	}
 	
-	
 	@Override
 	public double perimetre() {
 		return rayon*2*Math.PI;

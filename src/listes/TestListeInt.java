@@ -47,8 +47,10 @@ public class TestListeInt {
 		list.remove(minIndex);
 		
 		
+		for(int i = 0; i < list.size(); i++) {
+			list.set(i, Math.abs(list.get(i)));
+		}// num devient sa valeur absolue ex. valeur absolu |-4| = 4; |-99| = 99, |2| = 2
 		
-		list.forEach(num -> num = Math.abs(num));// num devient sa valeur absolue ex. valeur absolu |-4| = 4; |-99| = 99, |2| = 2
 		
 		// affiche tous les element de la liste
 		System.out.print("Voici tous les nombre de la liste : ");

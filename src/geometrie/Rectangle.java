@@ -16,7 +16,7 @@ public class Rectangle implements ObjetGeometrique {
 	public double perimetre() {
 		return longueur*2 + largeur*2;
 	}
-
+	
 	@Override
 	public double surface() {
 		return longueur*largeur;

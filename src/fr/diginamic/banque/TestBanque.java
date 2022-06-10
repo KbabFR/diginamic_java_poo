@@ -14,6 +14,8 @@ public class TestBanque {
 			System.out.println(tabCompte[i].toString());
 		}
 		
+		System.out.println(tabCompte[0].getNumCompte());
+		
 	}
 
 }

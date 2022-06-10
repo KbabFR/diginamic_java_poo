@@ -26,7 +26,7 @@ public class Compte {
 		return solde;
 	}
 
-	public void setSolde(int solde) {
+	public void setSolde(float solde) {
 		this.solde = solde;
 	}
 
@@ -34,6 +34,8 @@ public class Compte {
 	public String toString() {
 		return "Compte [numCompte=" + numCompte + ", solde=" + solde + "]";
 	}
+
+	
 	
 	
 
