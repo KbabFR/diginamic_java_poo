@@ -1,6 +1,7 @@
 package fr.diginamic.automates;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JeuDeLaVie {
 	
@@ -8,13 +9,19 @@ public class JeuDeLaVie {
 
 	public static void main(String[] args) {
 		
-		//TODO add list to save
-		JeuDeLaVie game = new JeuDeLaVie(20, 20, 0);
-		System.out.println(game);
-		while(!game.isEveryoneDead()) {
-			for (int i = 0; i < game.playground.length; i++) {
-				for (int j = 0; j < game.playground[0].length; j++) {
-					game.playground[i][j].turn(game.getAroundCellAlive(i, j));
+		List<JeuDeLaVie> game = new ArrayList<>();
+		
+		int x = 20;
+		int y = 20;
+		int option = 1;
+		
+		game.add(new JeuDeLaVie(x, y, option));
+		System.out.println(game.get(0));
+		while(!game.get(game.size() - 1).isEveryoneDead()) {
+			game.add(new JeuDeLaVie(x, y, option));
+			for (int i = 0; i < x; i++) {
+				for (int j = 0; j < y; j++) {
+					game.get(game.size() - 1).playground[i][j].turn(game.get(game.size() - 2).getAroundCellAlive(i, j));
 				}
 			}
 			try {
@@ -22,28 +29,38 @@ public class JeuDeLaVie {
 			} catch(Exception e) {
 				System.err.println(e);
 			}
-			System.out.println(game);
+			System.out.println(game.get(game.size() - 1));
 		}
 	}
 
+	
+	/**
+	 * @param x weight of the board
+	 * @param y height of the board
+	 * @param startOption [0] blank board [x] Random Board
+	 */
 	public JeuDeLaVie(int x, int y, int startOption) {
 		
 		playground = new Cellule[x][y];
 		for(int i = 0; i < x; i++) {
 			for(int j = 0; j < y; j++) {
-				if(Math.random() < 0.5)
+				if(startOption == 0)
 					playground[i][j] = new Cellule(false);
-				else
-					playground[i][j] = new Cellule(true);
+				else {	
+					if(Math.random() < 0.5)
+						playground[i][j] = new Cellule(false);
+					else
+						playground[i][j] = new Cellule(true);
+				}
 			}
 		}
 	}
 	
 	
-	/** Retourne les cases autours de x,y.
+	/** Return the int of alive cell around the coord x and y
 	 * @param x
 	 * @param y
-	 * @return Cellule[3][3] ou moins si contre un bord
+	 * @return int number of cell around which or alive
 	 */
 	public int getAroundCellAlive(int x, int y) {
 		int cellAlive = 0;
@@ -53,7 +70,10 @@ public class JeuDeLaVie {
 					cellAlive++;
 			}
 		}
-		return cellAlive - 1;// on enleve une cellule car la fonction compte la cellule centrale
+		if(playground[x][y].isAlive())
+			return --cellAlive;
+		else
+			return cellAlive;
 	}
 	
 	private boolean isEveryoneDead() {
