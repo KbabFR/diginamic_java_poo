@@ -18,7 +18,7 @@ public class ComptagePaysParContinent {
 		HashMap<String, Integer> continents = new HashMap<String, Integer>();
 		
 		for (Pays pays : listPays) {
-			if(continents.get(pays.getContinent()) == null)
+			if(!continents.containsKey(pays.getContinent()))
 				continents.put(pays.getContinent(), 1);
 			else
 				continents.replace(pays.getContinent(), continents.get(pays.getContinent()) + 1);
