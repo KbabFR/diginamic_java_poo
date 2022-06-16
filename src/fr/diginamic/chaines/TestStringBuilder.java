@@ -4,6 +4,8 @@ public class TestStringBuilder {
 
 	public static void main(String[] args) {
 		
+		System.out.println("début du test StringBuilder");
+		
 		long debut = System.currentTimeMillis();
 		
 		StringBuilder build = new StringBuilder();
@@ -11,11 +13,13 @@ public class TestStringBuilder {
 		for (int i = 1; i < 100001; i++) {
 			build.append(i);
 		}
+		String sb = build.toString();
 		
 		long fin = System.currentTimeMillis();
 		
 		System.out.println(String.format("Temps écoulé en milisecondes en utilisant le StringBuilder : %s \n", fin - debut));
 		
+		System.out.println("début du test avec +");
 		debut = System.currentTimeMillis();
 		
 		String str = new String();
@@ -26,7 +30,7 @@ public class TestStringBuilder {
 		
 		fin = System.currentTimeMillis();
 		
-		System.out.println(String.format("Temps écoulé en milisecondes en utilisant la concaténation \"+\" : %s", fin - debut));
+		System.out.println(String.format("Temps écoulé en milisecondes en utilisant la concaténation + : %s", fin - debut));
 
 	}
 
